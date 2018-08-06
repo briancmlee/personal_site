@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Zucc</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="app">
+            <div class="gif"><img id="meme" src="https://media.giphy.com/media/cPNXOm7ln8HwK7UcbV/giphy.gif" /></div>
+            <div class="text">
+                <h1>Mark Zuckerberg</h1>
+                <p>a.k.a. The Zucc</p>
+                <p>"Humans drink water, it's normal"</p>
+            </div>
+            <div class="button"><button id="refreshMeme">another meme</button></div>
+        </div>
+        <form id="linkForm">
+            <label for="link">Submit an img link of another Zucc meme</label>
+            <input type="text" id="link"/>
+            <input type="submit" value="Submit"/>
+        </form>
+        <script>
+            let counter = 1;
+            const gifArray = [
+                "https://media.giphy.com/media/cPNXOm7ln8HwK7UcbV/giphy.gif",
+                "https://media.giphy.com/media/3d8mZpR1z4NFy6gIBA/giphy.gif",
+                "https://media.giphy.com/media/lfeuNThuPPOZTeglJE/source.gif",
+                "https://media.giphy.com/media/Outv7wsheydl6/giphy.gif"
+            ];
+            
+            document.getElementById("refreshMeme").addEventListener("click", () => {
+                counter = (counter + 1) % gifArray.length;
+                document.getElementById("meme").src = gifArray[counter];
+            });
+            
+            document.getElementById("linkForm").addEventListener("submit", event => {
+               event.preventDefault();
+               gifArray.push(document.getElementById("link").value);
+               document.getElementById("link").value = "";
+               counter = gifArray.length - 1;
+               document.getElementById("meme").src = gifArray[counter];
+            });
+        </script>
+    </body>
+</html>

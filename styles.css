@@ -1,0 +1,51 @@
+body {
+    font-family: "Comic Sans MS", cursive, sans-serif
+}
+
+.app {
+    display: grid;
+    max-height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 300px 1fr 1fr 20px;
+    grid-gap: 20px;
+    grid-template-areas:
+        ". . . . ."
+        ". g g g ."
+        ". t t t ."
+        ". t t t ."
+        ". . b . ."
+        ". f f f ."
+}
+
+.gif {
+    grid-area: g;
+    text-align: center;
+}
+
+img {
+    height: 100%;
+}
+
+.text {
+    grid-area: t;
+    text-align: center;
+}
+
+#linkForm {
+    grid-area: f;
+    text-align: center;
+}
+
+label {
+    font-size: 12px;
+}
+
+.button {
+    grid-area: b;
+    text-align: center;
+}
+
+button {
+    width: 50%;
+    height: 100%;
+}
